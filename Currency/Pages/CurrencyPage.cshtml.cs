@@ -22,7 +22,6 @@ namespace Currency.Pages
     {
         static List<string> CurrenciesList { get; set; } = new();
         public SelectList Currencies { get; set; }
-        #region doesn't matter
 
         [BindProperty(SupportsGet = true)]
         [StringLength(3)]
@@ -35,10 +34,8 @@ namespace Currency.Pages
         public decimal Quantity { get; set; }
 
         public decimal Result { get; set; }
-        #endregion
         public void OnGet()
         {
-            #region other actions
             RestClientOptions options = new("https://api.apilayer.com")
             {
                 ThrowOnAnyError = true,
@@ -61,7 +58,6 @@ namespace Currency.Pages
                 string json = sr.ReadToEnd();
                 dataFromJson = JsonSerializer.Deserialize<ListModel>(json);
             }
-            #endregion
             CurrenciesList = dataFromJson.currencies.Keys.ToList();
             Currencies = new(CurrenciesList);
         }
