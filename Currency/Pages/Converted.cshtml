@@ -1,0 +1,12 @@
+﻿@page "/result/{from?}/{quantity?}/{to?}/{result?}"
+@using Currency.Pages
+@model Currency.Pages.ConvertedModel
+@{
+}
+<!DOCTYPE html>
+<head>
+    <title>Success!</title>
+</head>
+<body>
+    <p>For @Model.Quantity @Model.From you will have @Model.Result @Model.To</p>
+</body>

@@ -1,0 +1,36 @@
+﻿@page "/currency/{currencyfrom?}/{currencyto?}/{quantity?}"
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Currency.Pages.CurrencyPageModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<head>
+    <title>Currency Converter</title>
+    <style>
+        *{
+            font-family: Arial
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Convert Values</h1>
+    <p>Choose the values</p>
+
+    <form method="post">
+        <p>Currency From</p>
+        <select asp-for="CurrencyFrom" asp-items="Model.Currencies"></select>
+        <p>Quantity</p>
+        <input type="number" asp-for="Quantity" />
+        <p>Currency To</p>
+        <select asp-for="CurrencyTo" asp-items="Model.Currencies"></select> 
+        <br />
+        <br />
+        <input type="submit" />
+    </form>
+    
+</body>
+
+
